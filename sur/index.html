@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gledson – Um Pai Inesquecível</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0fdf4;
+      color: #1b4332;
+      scroll-behavior: smooth;
+    }
+    header {
+      background-color: #2d6a4f;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #2d6a4f;
+      margin-bottom: 20px;
+    }
+    .gallery, .videos, .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .gallery img, .videos video {
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    footer {
+      background-color: #1b4332;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+    .memory-card {
+      width: 100px;
+      height: 100px;
+      background-color: white;
+      border: 2px solid #2d6a4f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+    }
+    canvas {
+      background: #d8f3dc;
+      display: block;
+      margin: 0 auto;
+    }
+    .quiz-question {
+      margin-bottom: 20px;
+    }
+    .quiz-option {
+      background-color: #ffffff;
+      border: 2px solid #2d6a4f;
+      padding: 10px;
+      margin: 5px 0;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    .quiz-option:hover {
+      background-color: #95d5b2;
+    }
+    .correct {
+      background-color: #74c69d;
+      position: relative;
+    }
+    .correct::after {
+      content: "❤️";
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: floatHeart 1s ease-out forwards;
+    }
+    @keyframes floatHeart {
+      0% { opacity: 1; transform: translate(-50%, 0); }
+      100% { opacity: 0; transform: translate(-50%, -40px); }
+    }
+    audio {
+      display: block;
+      margin: 20px auto;
+    }
+
+    .container {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.text-box {
+  background-color: #ffffff; /* fundo do texto */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  line-height: 1.8;
+}
+
+.text-box h1 {
+  text-align: center;
+  color: #2f7a3e; /* tom de verde mais escuro */
+  margin-bottom: 30px;
+}
+
+.text-box p {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.depoimentos {
+  max-width: 1000px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.depoimentos h2 {
+  text-align: center;
+  font-size: 2.2em;
+  color: #2f7a3e;
+  margin-bottom: 40px;
+}
+
+.depoimento {
+  background-color: #ffffff;
+  border-left: 8px solid #4caf50;
+  padding: 25px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  margin-bottom: 30px;
+}
+
+.depoimento h3 {
+  margin-top: 0;
+  color: #1e4620;
+  font-weight: bold;
+}
+
+.depoimento p {
+  margin: 10px 0;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+nav {
+      position: absolute;
+      width: 100%;
+      background-color: #1b4332;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: 10px;
+      transition: top 0.3s;
+    }
+    nav a {
+      color: white;
+      padding: 10px 15px;
+      background-color: #52b788;
+      border-radius: 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      flex: 1 1 auto;
+      max-width: 150px;
+      text-align: center;
+    }
+    nav a:hover {
+      background-color: #40916c;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Gledson – Um Pai Inesquecível 💚</h1>
+    <p>"Alguns heróis não usam capa. Eles nos ensinam com o coração."</p>
+  </header>
+
+
+  <audio controls>
+    <source src="musica/MC Neguinho do Kaxeta - Louco e Sonhador/MC Neguinho do Kaxeta - Louco e Sonhador.mp3" type="audio/mpeg">
+    Seu navegador não suporta áudio.
+  </audio>
+
+  <div class="container">
+    <div class="text-box">
+      <h1>Pai, essa é a minha homenagem para você</h1>
+      <p>
+        Pai, entrei na sua vida quando você tinha apenas 21 anos. Um jovem ainda, mas já tão cheio de histórias, batalhas e uma força que poucos têm. Mesmo tão novo, você já enfrentava a vida com coragem, responsabilidade e um coração gigante. E foi com tudo isso que você me recebeu no mundo.
+      </p>
+      <p>
+        Crescer ao seu lado foi o maior presente que eu poderia ter. Fui ouvindo suas histórias, aprendendo com seu exemplo e vendo, dia após dia, o quanto você lutou. Você começou cedo, ainda criança, vendendo água e doces no farol para ajudar sua família. Tão novo, e já com a atitude de um homem. Um verdadeiro herói.
+      </p>
+      <p>
+        Você nunca parou. Fez cursos, buscou conhecimento, participou de projetos inovadores. E mesmo depois de tantos desafios, aos 38 anos, decidiu começar a faculdade. Isso me ensinou que nunca é tarde para correr atrás dos sonhos. Você é um batalhador, um guerreiro, uma inspiração viva.
+      </p>
+      <p>
+        A sua relação com os seus pais sempre me emocionou. Sempre respeitando, amando e honrando cada um deles com muito carinho. O amor e o cuidado que você tem pela sua mãe e seu pai mostram de onde vem a sua essência linda.
+      </p>
+      <p>
+        E a sua relação com a minha mãe… ah, pai, que coisa mais linda! Vocês dois juntos mostram o que é amor verdadeiro, parceria de verdade. É lindo ver como vocês se cuidam, se apoiam e seguem lado a lado, com tanto carinho e companheirismo.
+      </p>
+      <p>
+        Quando eu tinha só quatro anos, chegou o Heytor. E desde então, é impossível não se emocionar com a conexão de vocês dois. É uma relação pura, bonita, cheia de amor. E mesmo com ele chegando, você nunca deixou de ser meu porto seguro, meu exemplo, meu tudo.
+      </p>
+      <p>
+        E pai… olha só pra mim hoje. Sei escrever assim, tirei 980 na redação do ENEM, falo inglês, espanhol, estou fazendo sites — como esse aqui, que você está lendo agora — tudo isso é graças a você. Você nunca deixou me faltar nada. Lutou, se esforçou, abriu mão de muita coisa por mim. E por tudo isso, eu sou quem sou. Sou fruto do seu amor, do seu esforço, do seu exemplo.
+      </p>
+      <p>
+        Você é um pai maravilhoso, uma pessoa de fé, que ama a Deus, que faz o bem sem olhar a quem. Você ilumina onde chega, espalha alegria, tem um coração enorme e uma humildade que encanta. Todos te amam — e eu, mais ainda.
+      </p>
+      <p>
+        Te amo com todo meu coração, pai. Obrigada por tudo.
+      </p>
+    </div>
+  </div>
+
+  <section id="fotos">
+    <h2>Galeria de Fotos</h2>
+    <div class="gallery">
+      <img src="img/esco.jpeg">
+      <img src="img/mae.jpeg">
+      <img src="img/pé.jpeg">
+      <img src="img/bolinha.jpeg">
+      <img src="img/palmeiras.jpeg">
+      <img src="img/vid.jpeg">
+      <img src="img/praia.jpeg">
+      <img src="img/ble.jpeg">
+      <img src="img/love.jpeg">
+      <img src="img/fa.jpeg">
+      <img src="img/cai.jpeg">
+      <img src="img/we.jpeg">
+      <img src="img/eli.jpeg">
+      <img src="img/familia.jpeg">
+    </div>
+  </section>
+
+  <section id="jogos">
+    <h2>Jogo</h2>
+
+    <section id="quiz">
+      <h2>Quiz: Quanto você conhece o Gledson?</h2>
+    
+      <div id="quiz-container"></div>
+    
+      <style>
+        #quiz {
+          background-color: #e8f5e9;
+          padding: 40px 20px;
+          border-radius: 20px;
+          max-width: 900px;
+          margin: 0 auto;
+          font-family: Arial, sans-serif;
+        }
+    
+        #quiz h2 {
+          text-align: center;
+          color: #2e7d32;
+          margin-bottom: 30px;
+        }
+    
+        .question {
+          background: #ffffff;
+          border: 2px solid #c8e6c9;
+          border-radius: 15px;
+          padding: 20px;
+          margin-bottom: 25px;
+          transition: all 0.3s ease;
+        }
+    
+        .question p {
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+    
+        .options label {
+          display: block;
+          padding: 8px;
+          margin: 6px 0;
+          border-radius: 8px;
+          cursor: pointer;
+          border: 1px solid transparent;
+          transition: 0.2s;
+        }
+    
+        .options input[type="radio"] {
+          margin-right: 10px;
+        }
+    
+        .correct {
+          background-color: #a5d6a7 !important;
+          color: #1b5e20;
+          font-weight: bold;
+        }
+    
+        .incorrect {
+          background-color: #ffcdd2 !important;
+          color: #b71c1c;
+        }
+    
+        .hearts {
+          text-align: center;
+          font-size: 28px;
+          color: #e91e63;
+          margin-top: 12px;
+          animation: floatHearts 1s ease-in-out;
+        }
+    
+        @keyframes floatHearts {
+          0% { transform: translateY(20px); opacity: 0; }
+          100% { transform: translateY(-10px); opacity: 1; }
+        }
+      </style>
+    
+      <script>
+        const perguntas = [
+          {
+            texto: "1. Quem é o verdadeiro herói da minha vida?",
+            opcoes: ["Batman", "Thor", "Gledson", "Super-Homem"],
+            correta: 2
+          },
+          {
+            texto: "2. Quem faz o melhor frango do mundo?",
+            opcoes: ["O vizinho", "Um chef famoso", "Gledson", "O tio da esquina"],
+            correta: 2
+          },
+          {
+            texto: "3. Quem é conhecido por sempre ter um bom conselho na hora certa?",
+            opcoes: ["Google", "ChatGPT", "Gledson", "O tio do bar"],
+            correta: 2
+          },
+          {
+            texto: "4. Quem é o melhor jogador (pelo menos na opinião da filha)?",
+            opcoes: ["Messi", "Neymar", "Cristiano Ronaldo", "Gledson"],
+            correta: 3
+          },
+          {
+            texto: "5. Quem é mestre em contar histórias incríveis da infância?",
+            opcoes: ["Um escritor", "Um avô qualquer", "Gledson", "Um narrador de TV"],
+            correta: 2
+          },
+          {
+            texto: "6. Quem transforma qualquer momento simples em uma lembrança especial?",
+            opcoes: ["Um fotógrafo", "Um mágico", "Gledson", "Um influencer"],
+            correta: 2
+          },
+          {
+            texto: "7. Quem é o melhor companheiro para ver um filme?",
+            opcoes: ["Um cachorro", "Um amigo", "Gledson", "A almofada"],
+            correta: 2
+          },
+          {
+            texto: "8. Quem sempre está lá, não importa a situação?",
+            opcoes: ["O tempo", "A sorte", "Gledson", "O destino"],
+            correta: 2
+          },
+          {
+            texto: "9. Quem merece um troféu de 'pai do ano', todo ano?",
+            opcoes: ["Um famoso da TV", "Um personagem de filme", "Gledson", "Um super-herói"],
+            correta: 2
+          },
+          {
+            texto: "10. Quem é a pessoa mais especial que esse quiz inteiro tenta homenagear?",
+            opcoes: ["Alguém famoso", "Um personagem fictício", "Um desconhecido", "Gledson"],
+            correta: 3
+          }
+        ];
+    
+        const quizContainer = document.getElementById('quiz-container');
+    
+        perguntas.forEach((pergunta, index) => {
+          const div = document.createElement('div');
+          div.classList.add('question');
+    
+          const p = document.createElement('p');
+          p.textContent = pergunta.texto;
+          div.appendChild(p);
+    
+          const opcoesDiv = document.createElement('div');
+          opcoesDiv.classList.add('options');
+    
+          pergunta.opcoes.forEach((opcao, i) => {
+            const label = document.createElement('label');
+            label.innerHTML = `<input type="radio" name="q${index}"> ${opcao}`;
+            label.addEventListener('click', () => {
+              const inputs = div.querySelectorAll('input');
+              inputs.forEach(input => input.disabled = true);
+    
+              if (i === pergunta.correta) {
+                label.classList.add('correct');
+                const hearts = document.createElement('div');
+                hearts.classList.add('hearts');
+                hearts.textContent = '💚💚💚';
+                div.appendChild(hearts);
+              } else {
+                label.classList.add('incorrect');
+                const corretaLabel = div.querySelectorAll('label')[pergunta.correta];
+                corretaLabel.classList.add('correct');
+              }
+            });
+    
+            opcoesDiv.appendChild(label);
+          });
+    
+          div.appendChild(opcoesDiv);
+          quizContainer.appendChild(div);
+        });
+      </script>
+    </section>
+  </section>
+
+  <section class="depoimentos">
+  <h2>Depoimentos</h2>
+
+  <div class="depoimento">
+    <h3>Heytor:</h3>
+    <p>
+      Meu pai é tudo pra mim. Ele é divertido, dedicado e sempre muito esforçado. É um cara honesto e trabalhador, que faz de tudo pela nossa família.
+    </p>
+    <p>
+      Pra mim, ele é um pai incrível, uma verdadeira inspiração. Ele sempre me ajuda, me ensina e está ao meu lado em todos os momentos.
+    </p>
+    <p>
+      Eu acho ele um pai perfeito. E tenho muito orgulho de ser filho dele.
+    </p>
+  </div>
+
+  <div class="depoimento">
+    <h3>Minha mãe:</h3>
+    <p>
+      Parabéns pelo seu aniversário! Você é um pai maravilhoso e uma inspiração para nossos filhos. Sua dedicação, amor e cuidado são fundamentais para o crescimento e desenvolvimento deles. Você é um exemplo de caráter, responsabilidade e amor incondicional.
+    </p>
+    <p>
+      Que Deus te abençoe com saúde, felicidade e muitos anos de vida ao lado da nossa família. Que este dia seja repleto de alegria, amor e celebração. Você merece!
+      <br><strong>FELIZ ANIVERSÁRIO DEUS ABENÇOE SEMPRE SUA VIDA E PROJETOS 🙌🏾🎉🎂👏🏾👏🏾👏🏾❤️</strong>
+    </p>
+  </div>
+
+  <div class="depoimento">
+    <h3>Wendell:</h3>
+    <p>
+      Dede, desde q te conheci sempre vi vc como um cara guerreiro, q não foge da luta e faz de tudo pela família. Um leão mesmo, com um coração q não cabe no peito. Cada atitude sua mostra o tamanho q vc tem como pessoa, como pai e como marido tb.
+    </p>
+    <p>
+      Se fosse pra resumir vc em uma palavra, seria “coragem”. Pq pra vc não tem tempo ruim, e o único medo q vc tem é de não estar ali pra levantar a casa com essa energia e essa vibe positiva q contagia todo mundo.
+    </p>
+    <p>
+      Feliz aniversário sogrão! Vc é inspiração, pra mim e pra quem tem o privilégio de te conhecer. 🤜🏻🤛🏻❤️
+    </p>
+  </div>
+
+  <div class="depoimento">
+  <h3>Heloysa:</h3>
+  <p>
+    Meu pai é uma pessoa incrível e extraordinária. Desde sempre, ele esteve ao meu lado, me apoiando, me guiando e fazendo o impossível para me ver bem. Ele move o mundo e monta montanhas se for preciso – tudo por mim e por nossa família.
+  </p>
+  <p>
+    É um homem humilde, forte, corajoso e de um coração gigante. Um verdadeiro exemplo de ser humano, que me inspira todos os dias. Tenho muito orgulho de ser filha dele e de carregar um pedacinho dele em mim.
+  </p>
+  <p>
+    Pai, eu te amo imensamente. Que a vida te retribua com tudo de mais bonito, porque você merece o mundo inteiro.
+  </p>
+</div>
+
+  <div class="depoimento">
+    <h3>Vó Maria:</h3>
+    <p>
+      Então, como mãe, eu desejo que Deus abençoe muito a vida dele. Entre os três irmãos, ele sempre foi o mais inteligente. Quando era pequeno, não dava tanta importância aos estudos, levava tudo meio na brincadeira. Mas depois que cresceu e viu que o mundo não é do jeito que a gente quer, ele entendeu que precisava estudar.
+    </p>
+    <p>
+      Hoje ele está correndo atrás, valorizando os estudos, e colocando os filhos também no caminho certo, incentivando desde cedo. Era pra ele já estar formado há muito tempo, mas tudo tem seu tempo, né? Depois que virou adulto, tomou juízo, e agora está focado no que é certo.
+    </p>
+    <p>
+      O que eu desejo pra ele é que continue sendo esse exemplo — tanto pros irmãos quanto pros filhos — e que seja um pai cada vez melhor. Que Deus abençoe a vida dele, que ele seja muito feliz… e feliz aniversário!
+    </p>
+  </div>
+
+  <div class="depoimento">
+    <h3>Ketleyn:</h3>
+    <p>
+      Meu tio é uma pessoa abençoada, dedicada, sonhadora e inteligente. Admiro muito ele — como pai, tio e como parte da nossa família. Amo demais!
+    </p>
+    <p>
+      Às vezes ele é chato, um pouco arrogante, mas eu entendo… Ele é um verdadeiro anjo na vida de nós, sobrinhos, porque quer nos ver crescer e se dedica aos nossos sonhos como se fossem dele.
+    </p>
+    <p>
+      Peço que Deus abençoe grandemente a vida dele, com muitos anos de vida e muita felicidade, porque ele merece. É um homem sonhador, e tenho muito orgulho dele.
+    </p>
+  </div>
+
+  <div class="depoimento">
+    <h3>Vó Chica:</h3>
+    <p>
+      Feliz aniversário, genro!
+    </p>
+    <p>
+      Você é uma pessoa enviada por Deus, um homem verdadeiramente abençoado que Ele colocou na vida da minha filha e dos meus netos. Neste dia tão especial, quero te parabenizar e desejar que possamos comemorar muitos e muitos aniversários ao seu lado.
+    </p>
+    <p>
+      Que você continue sempre sendo essa pessoa humilde, de caráter íntegro, cheio de sabedoria e cuidado com quem está ao seu redor. Que Deus lhe conceda muita saúde, felicidade e faça com que todos os seus sonhos se realizem. Que a presença d’Ele esteja em cada passo seu, abençoando seus projetos e livrando-o de toda tempestade, inveja e mal.
+    </p>
+    <p>
+      Receba esta mensagem com todo o meu carinho — da sua sogra, Chica. Que a cada amanhecer você sinta a proteção e o amor de Deus, e que nossa família permaneça sempre unida e fortalecida pela fé.
+    </p>
+    <p>
+      Parabéns, genro querido! Agora é hora de comemorar com muito bolo, alegria e gratidão. Que seu novo ciclo seja repleto de bênçãos!
+    </p>
+  </div>
+
+  <div class="depoimento">
+  <h3>Zé:</h3>
+  <p>
+    Boa noite, meu amigo Dedê! Meus parabéns! Em primeiro lugar, que Deus continue te abençoando, em segundo, muita saúde, família unida, dinheiro no bolso e tudo de melhor pra você.
+  </p>
+  <p>
+    Que o Palmeiras perca o Campeonato Brasileiro este ano — só pra você não ficar muito convencido! Haha!
+  </p>
+  <p>
+    Grande abraço e feliz aniversário, meu irmão! Você merece tudo de bom!
+  </p>
+</div>
+
+</section>
+
+  <section id="homenagem">
+    <h2>Homenagem Especial</h2>
+    <p>Querido pai, você é meu maior exemplo. Sua força, seu coração e sua forma de cuidar de mim são tudo o que preciso para acreditar em um mundo melhor. Obrigada por estar sempre ao meu lado, mesmo nos momentos difíceis. Você é meu herói, minha inspiração. Eu te amo com todo meu coração! – Heloysa 💚</p>
+  </section>
+
+  <footer>
+    <p style="text-align: center;">
+  Feito com muito amor por Heloysa e Heytor ♥</p>
+  </footer>
+
+  <script>
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+    let x = 180, y = 350, bullets = [], enemies = [];
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") x -= 20;
+      if (e.key === "ArrowRight") x += 20;
+      if (e.key === " ") bullets.push({ x: x + 10, y });
+    });
+    function draw() {
+      ctx.clearRect(0, 0, 400, 400);
+      ctx.fillStyle = "#2d6a4f";
+      ctx.fillRect(x, y, 20, 20);
+      bullets = bullets.filter(b => b.y > 0);
+      bullets.forEach(b => {
+        b.y -= 5;
+        ctx.fillRect(b.x, b.y, 5, 10);
+      });
+      if (Math.random() < 0.05) enemies.push({ x: Math.random()*380, y: 0 });
+      enemies.forEach(e => {
+        e.y += 2;
+        ctx.fillStyle = "red";
+        ctx.fillRect(e.x, e.y, 20, 20);
+      });
+    }
+    setInterval(draw, 30);
+
+    function responder(elemento, correto) {
+      if (elemento.classList.contains('correct') || elemento.classList.contains('incorrect')) return;
+      if (correto) {
+        elemento.classList.add('correct');
+      } else {
+        elemento.classList.add('incorrect');
+      }
+    }
+  </script>
+</body>
+</html>
